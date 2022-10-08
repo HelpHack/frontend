@@ -1,18 +1,23 @@
-import { Image, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import { Layout, Text } from "@ui-kitten/components";
-import cardImg from "@src/assets/car.jpeg";
 
 interface IProps {
   text: string;
+  img: ImageSourcePropType;
 }
 
-const ChooseProfileCard = ({ text }: IProps) => {
+const ChooseProfileCard = ({ text, img }: IProps) => {
   return (
     <TouchableOpacity style={styles.container}>
       <Text style={styles.text}>{text}</Text>
       <Layout style={styles.overlay} />
-      <Image source={cardImg} style={styles.image} />
+      <Image source={img} style={styles.image} />
     </TouchableOpacity>
   );
 };

@@ -4,7 +4,8 @@
     "paths": {
       "components/*": ["src/components/*"],
       "buttons": ["src/components/buttons/index"],
-      "src/*": ["src/*"]
+      "src/*": ["src/*"],
+      "assets": ["assets/*"]
     }
   },
   "extends": "expo/tsconfig.base"
