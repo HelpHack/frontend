@@ -14,10 +14,9 @@ interface IProps {
   text: string;
   img: ImageSourcePropType;
   route: string;
-  color: string;
 }
 
-const ChooseProfileCard = ({ text, img, route, color }: IProps) => {
+const ChooseProfileCard = ({ text, img, route }: IProps) => {
   const navigation = useNavigation<StackNavigationProp<any>>();
   return (
     <TouchableOpacity
