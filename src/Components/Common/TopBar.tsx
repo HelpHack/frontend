@@ -24,7 +24,7 @@ export default TopBar;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 32,
+    marginTop: 16,
     display: "flex",
     flexDirection: "row",
     paddingHorizontal: 16,

@@ -12,9 +12,9 @@ const ChooseProfile = () => {
       <ChooseProfileCard
         text="I Want Help"
         img={VolunteerNeeded}
-        route="Main"
+        route="MainRequester"
       />
-      <ChooseProfileCard text="I Can Help" img={Helper} route="Main" />
+      <ChooseProfileCard text="I Can Help" img={Helper} route="MainVolunteer" />
     </Layout>
   );
 };
