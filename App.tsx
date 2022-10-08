@@ -5,8 +5,8 @@ import { ApplicationProvider, Layout, Text } from "@ui-kitten/components";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 
-import ChooseProfile from "./src/Scenes/ChooseProfile/ChooseProfile";
-import Main from "./src/Scenes/Main/Main";
+import ChooseProfile from "src/Scenes/ChooseProfile/ChooseProfile";
+import Main from "src/Scenes/Main/Main";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
