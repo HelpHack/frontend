@@ -1,18 +1,22 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Image, ImageSourcePropType, StyleSheet, View } from "react-native";
 import React from "react";
 import { Layout, Text, Icon } from "@ui-kitten/components";
-import Face from "src/assets/guy.jpeg";
 
-const TopBar = () => {
+interface IProps {
+  name: string;
+  img: ImageSourcePropType;
+}
+
+const TopBar = ({ name, img }: IProps) => {
   return (
     <Layout style={styles.container}>
       <Layout style={styles.personContainer}>
-        <Image style={styles.image} source={Face} />
+        <Image style={styles.image} source={img} />
         <Layout>
           <Text>Welcome </Text>
         </Layout>
         <Layout>
-          <Text style={styles.name}>XYZ</Text>
+          <Text style={styles.name}>{name}</Text>
         </Layout>
       </Layout>
       <Layout style={styles.settingsContainer}></Layout>

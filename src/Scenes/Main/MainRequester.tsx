@@ -3,14 +3,15 @@ import React from "react";
 import { Layout } from "@ui-kitten/components";
 import TopBar from "src/Components/Common/TopBar";
 import RequesterCardsContainer from "src/Containers/MainRequester/RequesterCardsContainer";
+import Face from "src/assets/old-lady.jpeg";
 
 const MainRequester = () => {
   return (
-    <ScrollView style={styles.container}>
+    <Layout style={styles.container}>
       <StatusBar />
-      <TopBar />
+      <TopBar name="Barbara" img={Face} />
       <RequesterCardsContainer />
-    </ScrollView>
+    </Layout>
   );
 };
 
@@ -20,5 +21,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
     flex: 1,
+    display: "flex",
   },
 });
