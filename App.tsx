@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 
 import ChooseProfile from "./src/Scenes/ChooseProfile/ChooseProfile";
+import Main from "./src/Scenes/Main/Main";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -15,8 +16,13 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
+            options={{ headerShown: false }}
             name="Home"
             component={ChooseProfile}
+          />
+          <Stack.Screen
+            name="Main"
+            component={Main}
             options={{ title: "Welcome" }}
           />
         </Stack.Navigator>
@@ -27,9 +33,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    marginTop: 10,
   },
 });
