@@ -6,6 +6,14 @@ const initialState = {
   isSuccess: false,
   isLoading: false,
   message: "",
+  startLocation: {
+    lat: "50.257379",
+    lng: "19.022999",
+  },
+  endLocation: {
+    lat: "50.264211",
+    lng: "19.023304",
+  },
 };
 
 export const authSlice = createSlice({
