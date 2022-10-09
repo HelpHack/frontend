@@ -16,6 +16,7 @@ const initialState = {
     lng: "19.023304",
   },
   response: {},
+  tasks: [],
 };
 
 interface DirectionProps {
@@ -50,15 +51,34 @@ export const getDirection = createAsyncThunk(
 export const addTask = createAsyncThunk(
     "tasks/addTasks",
     async (
-        list: {value: string}[],
+        payload: {list: {value: string}[]; category: string},
         thunkAPI
     ) => {
+      const {list, category} = payload
       try {
-        const res =  await taskService.addTask(list);
+        const res =  await taskService.addTask(list, category);
         console.log({res})
         return res
       } catch (error) {
         console.log({error})
+        const message = error.response.data || error.message || error.toString();
+        return thunkAPI.rejectWithValue(message);
+      }
+    }
+);
+
+export const getTasks = createAsyncThunk(
+    "tasks/getTasks",
+    async (
+        { }: { },
+        thunkAPI
+    ) => {
+      try {
+        const res =  await taskService.getTasks();
+        console.log({res})
+        return thunkAPI.fulfillWithValue(res)
+      } catch (error) {
+        console.log(error)
         const message = error.response.data || error.message || error.toString();
         return thunkAPI.rejectWithValue(message);
       }
@@ -86,6 +106,21 @@ export const taskSlice = createSlice({
           state.response = action.payload;
         })
         .addCase(getDirection.rejected, (state, action) => {
+          state.isLoading = false;
+          state.message = action.payload;
+          state.isError = true;
+        })
+        .addCase(getTasks.pending, (state) => {
+          console.log('pending')
+            state.isLoading = true;
+        })
+        .addCase(getTasks.fulfilled, (state, action) => {
+          console.log({action})
+          state.isLoading = false;
+          state.isRegistration = true;
+          state.tasks = action.payload;
+        })
+        .addCase(getTasks.rejected, (state, action) => {
           state.isLoading = false;
           state.message = action.payload;
           state.isError = true;

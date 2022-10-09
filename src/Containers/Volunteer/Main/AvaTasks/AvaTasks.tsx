@@ -4,25 +4,24 @@ import { Layout, Input, Icon } from "@ui-kitten/components";
 import { textStyles } from "src/styles/textStyles";
 import TaskCard from "src/Components/Common/TaskCard/TaskCard";
 
-const AvaTasks = () => {
+const categoryMap = {
+    SHOPPING: 'Shopping',
+    LIFT: 'Lift',
+    SERVICES: 'Services'
+}
+
+const AvaTasks = ({tasks}:any) => {
   const [value, setValue] = useState("");
   return (
     <Layout style={styles.container}>
       <Text style={textStyles.sectionTitle}>Available volunteering</Text>
-      <TaskCard
-        title="Shopping"
-        details={{ start: "ul. Pomorksa 14", destination: "Kaszubska 14" }}
-        route="AvailableShopping"
-      />
-      <TaskCard
-        title="Lyft"
-        details={{ start: "ul. Pomorksa 14", destination: "Kaszubska 14" }}
-      />
-      <TaskCard
-        title="House service"
-        details={{ start: "ul. Pomorksa 14", destination: "Kaszubska 14" }}
-        route="AvaService"
-      />
+        {tasks.map(task => (
+            <TaskCard
+                title={categoryMap[task.category]}
+                details={{ start: "ul. Pomorksa 14", destination: task.address }}
+                route="ShoppingTask"
+            />
+        ))}
       <Input
         placeholder="Search for volunteering"
         value={value}
