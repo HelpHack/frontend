@@ -2,8 +2,11 @@ import React from "react";
 import { StyleSheet, View, Dimensions, Text } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { Button, Layout } from "@ui-kitten/components";
+import { useSelector } from "react-redux";
 
 const Shopping = () => {
+  const { startLocation } = useSelector((state: any) => state.taskSlice);
+  if (!startLocation) return null;
   return (
     <Layout style={styles.container}>
       <Layout style={styles.info}>
@@ -18,16 +21,19 @@ const Shopping = () => {
       </Layout>
       <MapView
         region={{
-          latitude: 50.257379,
-          longitude: 19.022999,
+          latitude: +startLocation.lat,
+          longitude: +startLocation.lng,
           latitudeDelta: 0.01,
           longitudeDelta: 0.01,
         }}
         style={styles.map}
       >
         <Marker
-          title="hui"
-          coordinate={{ latitude: 50.257379, longitude: 19.022999 }}
+          title="You are here"
+          coordinate={{
+            latitude: +startLocation.lat,
+            longitude: +startLocation.lng,
+          }}
         />
       </MapView>
     </Layout>
