@@ -17,7 +17,7 @@ const ShoppingListContainer = () => {
         setShoppingList={setShoppingList}
       />
       <AddItem setShoppingList={setShoppingList} />
-      <Button disabled={shoppingList.length < 1}>Approve shopping list</Button>
+      <Button onPress={() => } disabled={shoppingList.length < 1}>Approve shopping list</Button>
     </View>
   );
 };
