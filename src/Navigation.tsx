@@ -1,6 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { Platform } from "react-native";
 
 import ChooseProfile from "src/Scenes/ChooseProfile/ChooseProfile";
 import MainVolunteer from "src/Scenes/Main/MainVolunteer";
@@ -21,12 +22,12 @@ const Navigation = () => {
         />
         <Stack.Screen
           name="MainVolunteer"
-          options={{ headerShown: false }}
+          options={{ headerShown: Platform.OS === 'ios' }}
           component={MainVolunteer}
         />
         <Stack.Screen
           name="MainRequester"
-          options={{ headerShown: false }}
+          options={{ headerShown: Platform.OS === 'ios' }}
           component={MainRequester}
         />
         <Stack.Screen
