@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 
 import { Layout, Text } from "@ui-kitten/components";
 import ChooseProfileCard from "src/Components/ChooseProfile/ChooseProfileCard";
-import Helper from "src/assets/Cards/helping-hand.jpeg";
+import Helper from "src/assets/helping-hand.jpeg";
 import VolunteerNeeded from "src/assets/Cards/volunteer-needed.jpeg";
 
 const ChooseProfile = () => {
@@ -12,9 +12,9 @@ const ChooseProfile = () => {
       <ChooseProfileCard
         text="I Want Help"
         img={VolunteerNeeded}
-        route="Main"
+        route="MainRequester"
       />
-      <ChooseProfileCard text="I Can Help" img={Helper} route="Main" />
+      <ChooseProfileCard text="I Can Help" img={Helper} route="MainVolunteer" />
     </Layout>
   );
 };

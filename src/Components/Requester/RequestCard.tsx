@@ -2,67 +2,56 @@ import {
   Image,
   ImageSourcePropType,
   StyleSheet,
+  Text,
   TouchableOpacity,
 } from "react-native";
 import React from "react";
-import { Layout, Text } from "@ui-kitten/components";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 interface IProps {
-  text: string;
+  title: string;
   img: ImageSourcePropType;
   route: string;
 }
 
-const ChooseProfileCard = ({ text, img, route }: IProps) => {
+const RequestCard = ({ title, img, route }: IProps) => {
   const navigation = useNavigation<StackNavigationProp<any>>();
   return (
     <TouchableOpacity
       style={styles.container}
       onPress={() => navigation.navigate(route)}
     >
-      <Text style={styles.text}>{text}</Text>
-      <Layout style={styles.overlay} />
       <Image source={img} style={styles.image} />
+      <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
 };
 
-export default ChooseProfileCard;
+export default RequestCard;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     display: "flex",
-    alignItems: "center",
+    flexDirection: "row",
     justifyContent: "center",
-    backgroundColor: "black",
+    alignItems: "center",
+    flex: 1,
+    marginVertical: 6,
+    borderRadius: 16,
     position: "relative",
   },
   text: {
     color: "white",
     fontSize: 32,
-    fontWeight: "bold",
-    position: "relative",
-    zIndex: 5,
+    fontWeight: "600",
   },
   image: {
     position: "absolute",
     top: 0,
     left: 0,
-    height: "100%",
-    width: "100%",
-    zIndex: 3,
-  },
-  overlay: {
-    position: "absolute",
-    top: 0,
-    left: 0,
     width: "100%",
     height: "100%",
-    backgroundColor: "#292851",
-    opacity: 0.5,
-    zIndex: 4,
+    borderRadius: 16,
   },
 });
