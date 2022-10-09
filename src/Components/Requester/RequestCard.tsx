@@ -6,15 +6,22 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 interface IProps {
   title: string;
   img: ImageSourcePropType;
+  route: string;
 }
 
-const RequestCard = ({ title, img }: IProps) => {
+const RequestCard = ({ title, img, route }: IProps) => {
+  const navigation = useNavigation<StackNavigationProp<any>>();
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate(route)}
+    >
       <Image source={img} style={styles.image} />
       <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>

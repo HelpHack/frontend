@@ -19,7 +19,7 @@ const TopBar = ({ name, img }: IProps) => {
           <Text style={styles.name}>{name}</Text>
         </Layout>
       </Layout>
-      <Layout style={styles.settingsContainer}></Layout>
+      {/* <Layout style={styles.settingsContainer}></Layout> */}
     </Layout>
   );
 };

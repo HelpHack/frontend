@@ -10,9 +10,17 @@ const RequesterCardsContainer = () => {
   return (
     <Layout style={styles.container}>
       <Text style={styles.title}>What help do You need?</Text>
-      <RequestCard title="Shopping help" img={ShoppingImg} />
-      <RequestCard title="I need a lift" img={CarImg} />
-      <RequestCard title="Home service" img={ApartmentImg} />
+      <RequestCard
+        title="Shopping help"
+        img={ShoppingImg}
+        route="ShoppingHelp"
+      />
+      <RequestCard title="I need a lift" img={CarImg} route="ShoppingHelp" />
+      <RequestCard
+        title="Home service"
+        img={ApartmentImg}
+        route="ShoppingHelp"
+      />
     </Layout>
   );
 };

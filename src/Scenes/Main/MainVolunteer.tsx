@@ -1,9 +1,8 @@
 import { ScrollView, StatusBar, StyleSheet } from "react-native";
 import React from "react";
-import { Layout, Text } from "@ui-kitten/components";
 import TopBar from "src/Components/Common/TopBar";
-import ActiveTasks from "src/Containers/MainVolunteer/ActiveTasks/ActiveTasks";
-import AvaTasks from "src/Containers/MainVolunteer/AvaTasks/AvaTasks";
+import ActiveTasks from "src/Containers/Volunteer/Main/ActiveTasks/ActiveTasks";
+import AvaTasks from "src/Containers/Volunteer/Main/AvaTasks/AvaTasks";
 import Face from "src/assets/guy.jpeg";
 
 const Main = () => {

@@ -6,6 +6,8 @@ import CarImg from "src/assets/car.jpeg";
 import ApartmentImg from "src/assets/apartment.jpeg";
 
 import Details from "./Details";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 interface IProps {
   title: string;
@@ -13,9 +15,11 @@ interface IProps {
     start: string;
     destination: string;
   };
+  route?: string;
 }
 
-const TaskCard = ({ title, details }: IProps) => {
+const TaskCard = ({ title, details, route }: IProps) => {
+  const navigation = useNavigation<StackNavigationProp<any>>();
   const displayImg = (title) => {
     switch (title) {
       case "Shopping":
@@ -27,7 +31,10 @@ const TaskCard = ({ title, details }: IProps) => {
     }
   };
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => (route ? navigation.navigate(route) : null)}
+    >
       <Image style={styles.image} source={displayImg(title)} />
       <Text style={styles.taskTitle}>{title}</Text>
       <Details details={details} />

@@ -8,7 +8,6 @@ import React from "react";
 import { Layout, Text } from "@ui-kitten/components";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "src/types/routeTypes";
 
 interface IProps {
   text: string;
@@ -21,7 +20,7 @@ const ChooseProfileCard = ({ text, img, route }: IProps) => {
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => navigation.navigate(route, {})}
+      onPress={() => navigation.navigate(route)}
     >
       <Text style={styles.text}>{text}</Text>
       <Layout style={styles.overlay} />
