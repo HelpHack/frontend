@@ -24,7 +24,7 @@ const TaskCard = ({ title, details, route }: IProps) => {
     switch (title) {
       case "Shopping":
         return ShoppingImg;
-      case "Lyft":
+      case "Lift":
         return CarImg;
       default:
         return ApartmentImg;
