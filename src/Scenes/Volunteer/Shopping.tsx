@@ -1,5 +1,5 @@
-import { StyleSheet, View, Dimensions, Text } from "react-native";
 import React from "react";
+import { StyleSheet, View, Dimensions, Text } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { Button, Layout } from "@ui-kitten/components";
 
