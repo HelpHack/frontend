@@ -12,6 +12,7 @@ import TaskList from "src/Containers/Requester/TaksList/TaskList";
 import NeedLift from "./Scenes/Requester/NeedLift";
 import HomeService from "./Scenes/Requester/HomeService";
 import AvaShopping from "./Scenes/Volunteer/AvaShopping";
+import AvaService from "./Scenes/Volunteer/AvaService";
 
 const Navigation = () => {
   const Stack = createNativeStackNavigator();
@@ -63,6 +64,11 @@ const Navigation = () => {
           name="AvailableShopping"
           // options={{ headerShown: false }}
           component={AvaShopping}
+        />
+        <Stack.Screen
+          name="AvaService"
+          // options={{ headerShown: false }}
+          component={AvaService}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -21,6 +21,7 @@ const AvaTasks = () => {
       <TaskCard
         title="House service"
         details={{ start: "ul. Pomorksa 14", destination: "Kaszubska 14" }}
+        route="AvaService"
       />
       <Input
         placeholder="Search for volunteering"
