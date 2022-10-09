@@ -33,11 +33,12 @@ const addTask = async (list: {value: string}[]) => {
     destination: {lat: 50.264211, lng: 19.023304},
 
   }
-  const response = await axios.post(`${API_URL}/requests`, data)
+  const response = await axios.post(`${API_URL}requests`, data)
 }
 
 const taskService = {
   getDirection,
+  addTask,
 };
 
 export default taskService;

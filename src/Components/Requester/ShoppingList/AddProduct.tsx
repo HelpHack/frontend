@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import { v4 } from "uuid";
 import { Button, Input, Layout } from "@ui-kitten/components";
 
 interface IProps {
@@ -11,7 +11,7 @@ const AddProduct = ({ setShoppingList }: IProps) => {
   const [value, setValue] = useState("");
   const addProductToList = () => {
     setShoppingList((prev) => {
-      const id = uuidv4();
+      const id = Math.random()
       return [...prev, { value, id }];
     });
   };
