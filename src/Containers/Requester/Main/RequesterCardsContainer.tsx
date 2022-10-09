@@ -15,7 +15,7 @@ const RequesterCardsContainer = () => {
         img={ShoppingImg}
         route="ShoppingHelp"
       />
-      <RequestCard title="I need a lift" img={CarImg} route="ShoppingHelp" />
+      <RequestCard title="I need a lift" img={CarImg} route="NeedLift" />
       <RequestCard
         title="Home service"
         img={ApartmentImg}

@@ -7,6 +7,7 @@ import MainVolunteer from "src/Scenes/Main/MainVolunteer";
 import MainRequester from "src/Scenes/Requester/MainRequester";
 import ShoppingHelp from "src/Scenes/Requester/ShoppingHelp";
 import Shopping from "./Scenes/Volunteer/Shopping";
+import NeedLift from "./Scenes/Requester/NeedLift";
 
 const Navigation = () => {
   const Stack = createNativeStackNavigator();
@@ -38,6 +39,11 @@ const Navigation = () => {
           name="ShoppingTask"
           // options={{ headerShown: false }}
           component={Shopping}
+        />
+        <Stack.Screen
+          name="NeedLift"
+          // options={{ headerShown: false }}
+          component={NeedLift}
         />
       </Stack.Navigator>
     </NavigationContainer>
