@@ -98,6 +98,7 @@ export const taskSlice = createSlice({
     extraReducers: (builder: any) => {
       builder
         .addCase(getDirection.pending, (state) => {
+          console.log("bania");
           state.isLoading = true;
         })
         .addCase(getDirection.fulfilled, (state, action) => {

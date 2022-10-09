@@ -14,8 +14,8 @@ const Shopping = () => {
         <Layout style={styles.taskDetails}>
           <Text style={styles.text}>Społem Katowice</Text>
           <Text style={styles.text}>Approx time: 7:30 min</Text>
-          <Text style={styles.text}>ul. Obsrana 420</Text>
-          <Text style={styles.text}>ul. Zwrócona 666</Text>
+          <Text style={styles.text}>ul. Pomorksa 13</Text>
+          <Text style={styles.text}>ul. Gajowa 2</Text>
         </Layout>
         <Button style={styles.navigateButton}>Navigate</Button>
       </Layout>
