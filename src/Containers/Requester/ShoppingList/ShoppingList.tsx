@@ -6,10 +6,17 @@ import Face from "src/assets/old-lady.jpeg";
 import ShoppingList from "src/Components/Requester/ShoppingList/ShoppingList";
 import AddItem from "src/Components/Requester/ShoppingList/AddProduct";
 import { Button } from "@ui-kitten/components";
+import {useAppDispatch} from "src/store";
+import {addTask} from "src/features/tasks/tasksSlice";
+import {useNavigation} from "@react-navigation/native";
+import {StackNavigationProp} from "@react-navigation/stack";
 
 const ShoppingListContainer = () => {
   const [shoppingList, setShoppingList] = useState<any[] | null>([]);
-  return (
+    const dispatch = useAppDispatch();
+    const navigation = useNavigation<StackNavigationProp<any>>()
+
+    return (
     <View style={styles.container}>
       <TopBar name="Barbara" img={Face} />
       <ShoppingList
@@ -17,7 +24,12 @@ const ShoppingListContainer = () => {
         setShoppingList={setShoppingList}
       />
       <AddItem setShoppingList={setShoppingList} />
-      <Button disabled={shoppingList.length < 1}>Approve shopping list</Button>
+      <Button onPress={() => {
+        console.log({shoppingList})
+        dispatch(addTask(shoppingList))
+        setShoppingList([])
+        navigation.navigate('TaskList')
+      }} disabled={shoppingList.length < 1}>Approve shopping list</Button>
     </View>
   );
 };

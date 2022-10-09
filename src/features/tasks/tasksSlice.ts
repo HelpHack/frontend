@@ -47,6 +47,24 @@ export const getDirection = createAsyncThunk(
   }
 );
 
+export const addTask = createAsyncThunk(
+    "tasks/addTasks",
+    async (
+        list: {value: string}[],
+        thunkAPI
+    ) => {
+      try {
+        const res =  await taskService.addTask(list);
+        console.log({res})
+        return res
+      } catch (error) {
+        console.log({error})
+        const message = error.response.data || error.message || error.toString();
+        return thunkAPI.rejectWithValue(message);
+      }
+    }
+);
+
 export const taskSlice = createSlice({
   name: "tasks",
   initialState,
