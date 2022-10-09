@@ -19,7 +19,7 @@ const RequesterCardsContainer = () => {
       <RequestCard
         title="Home service"
         img={ApartmentImg}
-        route="ShoppingHelp"
+        route="HomeService"
       />
     </Layout>
   );
