@@ -24,21 +24,28 @@ const getDirection = async ({
   return response.data;
 };
 
-const addTask = async (list: {value: string}[]) => {
+const addTask = async (list: {value: string}[], category: string) => {
   const formattedList = list.map(item => ({...item, active: false}))
   const data = {
     list: formattedList,
     status: 'PENDING',
     address: 'Rondo im. gen. Jerzego Ziętka 1, 40-001 Katowice',
     destination: {lat: 50.264211, lng: 19.023304},
-
+    category
   }
   const response = await axios.post(`${API_URL}requests`, data)
+}
+
+const getTasks = async () => {
+  const response = await axios.get(`${API_URL}requests`)
+console.log({response})
+  return response.data
 }
 
 const taskService = {
   getDirection,
   addTask,
+  getTasks,
 };
 
 export default taskService;

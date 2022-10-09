@@ -4,24 +4,24 @@ import TaskCard from "src/Components/Common/TaskCard/TaskCard";
 import { Layout } from "@ui-kitten/components";
 import { textStyles } from "src/styles/textStyles";
 
-const ActiveTasks = () => {
+const categoryMap = {
+    SHOPPING: 'Shopping',
+    LIFT: 'Lift',
+    SERVICES: 'Services'
+}
+
+const ActiveTasks = ({tasks}: {tasks:any[]}) => {
   return (
     <Layout style={styles.wrapper}>
       <Text style={textStyles.sectionTitle}>Active tasks</Text>
       <ScrollView horizontal={true} style={styles.container}>
-        <TaskCard
-          title="Shopping"
-          details={{ start: "ul. Pomorksa 14", destination: "Kaszubska 14" }}
-          route="ShoppingTask"
-        />
-        <TaskCard
-          title="Lyft"
-          details={{ start: "ul. Pomorksa 14", destination: "Kaszubska 14" }}
-        />
-        <TaskCard
-          title="House service"
-          details={{ start: "ul. Pomorksa 14", destination: "Kaszubska 14" }}
-        />
+        {tasks.map(task => (
+            <TaskCard
+                title={categoryMap[task.category]}
+                details={{ start: "ul. Pomorksa 14", destination: task.address }}
+                route="ShoppingTask"
+            />
+        ))}
       </ScrollView>
     </Layout>
   );

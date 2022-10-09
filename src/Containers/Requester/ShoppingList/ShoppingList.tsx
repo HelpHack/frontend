@@ -26,7 +26,7 @@ const ShoppingListContainer = () => {
       <AddItem setShoppingList={setShoppingList} />
       <Button onPress={() => {
         console.log({shoppingList})
-        dispatch(addTask(shoppingList))
+        dispatch(addTask({list:shoppingList, category:'SHOPPING'}))
         setShoppingList([])
         navigation.navigate('TaskList')
       }} disabled={shoppingList.length < 1}>Approve shopping list</Button>
