@@ -48,21 +48,18 @@ export const getDirection = createAsyncThunk(
 );
 
 export const addTask = createAsyncThunk(
-    "tasks/addTasks",
-    async (
-        list: {value: string}[],
-        thunkAPI
-    ) => {
-      try {
-        const res =  await taskService.addTask(list);
-        console.log({res})
-        return res
-      } catch (error) {
-        console.log({error})
-        const message = error.response.data || error.message || error.toString();
-        return thunkAPI.rejectWithValue(message);
-      }
+  "tasks/addTasks",
+  async (list: { value: string }[], thunkAPI) => {
+    try {
+      const res = await taskService.addTask(list);
+      console.log({ res });
+      return res;
+    } catch (error) {
+      console.log({ error });
+      const message = error.response.data || error.message || error.toString();
+      return thunkAPI.rejectWithValue(message);
     }
+  }
 );
 
 export const taskSlice = createSlice({
@@ -78,6 +75,7 @@ export const taskSlice = createSlice({
     extraReducers: (builder: any) => {
       builder
         .addCase(getDirection.pending, (state) => {
+          console.log("bania");
           state.isLoading = true;
         })
         .addCase(getDirection.fulfilled, (state, action) => {
