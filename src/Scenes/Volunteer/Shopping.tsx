@@ -4,25 +4,24 @@ import MapView, { Marker } from "react-native-maps";
 import { Button, Layout } from "@ui-kitten/components";
 import { useSelector } from "react-redux";
 
-const Shopping = () => {
+const Shopping = ({ route }: { route: object }) => {
+  const { task } = route.params;
   const { startLocation } = useSelector((state: any) => state.taskSlice);
   if (!startLocation) return null;
   return (
     <Layout style={styles.container}>
       <Layout style={styles.info}>
-        <Text style={styles.taskTitle}>Shopping task</Text>
+        <Text style={styles.taskTitle}>{task.category}</Text>
         <Layout style={styles.taskDetails}>
-          <Text style={styles.text}>Społem Katowice</Text>
-          <Text style={styles.text}>Approx time: 7:30 min</Text>
-          <Text style={styles.text}>ul. Pomorksa 13</Text>
-          <Text style={styles.text}>ul. Gajowa 2</Text>
+          <Text style={styles.text}>{task.address}</Text>
+          <Text style={styles.text}>Approx time: 7:32 min</Text>
         </Layout>
         <Button style={styles.navigateButton}>Navigate</Button>
       </Layout>
       <MapView
         region={{
-          latitude: +startLocation.lat,
-          longitude: +startLocation.lng,
+          latitude: task.destination.lat,
+          longitude: task.destination.lng,
           latitudeDelta: 0.01,
           longitudeDelta: 0.01,
         }}
@@ -31,8 +30,8 @@ const Shopping = () => {
         <Marker
           title="You are here"
           coordinate={{
-            latitude: +startLocation.lat,
-            longitude: +startLocation.lng,
+            latitude: task.destination.lat,
+            longitude: task.destination.lng,
           }}
         />
       </MapView>

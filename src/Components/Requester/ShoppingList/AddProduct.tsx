@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
-import { v4 } from "uuid";
 import { Button, Input, Layout } from "@ui-kitten/components";
 
 interface IProps {

@@ -16,9 +16,10 @@ interface IProps {
     destination: string;
   };
   route?: string;
+  task: object;
 }
 
-const TaskCard = ({ title, details, route }: IProps) => {
+const TaskCard = ({ title, details, route, task }: IProps) => {
   const navigation = useNavigation<StackNavigationProp<any>>();
   const displayImg = (title) => {
     switch (title) {
@@ -33,7 +34,7 @@ const TaskCard = ({ title, details, route }: IProps) => {
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => (route ? navigation.navigate(route) : null)}
+      onPress={() => (route ? navigation.navigate(route, { task }) : null)}
     >
       <Image style={styles.image} source={displayImg(title)} />
       <Text style={styles.taskTitle}>{title}</Text>

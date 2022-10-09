@@ -20,6 +20,7 @@ const ActiveTasks = ({tasks}: {tasks:any[]}) => {
                 title={categoryMap[task.category]}
                 details={{ start: "ul. Pomorksa 14", destination: task.address }}
                 route="ShoppingTask"
+                task={task}
             />
         ))}
       </ScrollView>
