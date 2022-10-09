@@ -12,6 +12,7 @@ const AvaTasks = () => {
       <TaskCard
         title="Shopping"
         details={{ start: "ul. Pomorksa 14", destination: "Kaszubska 14" }}
+        route="AvailableShopping"
       />
       <TaskCard
         title="Lyft"
