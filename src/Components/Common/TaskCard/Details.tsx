@@ -12,7 +12,6 @@ interface IProps {
 const Details = ({ details }: IProps) => {
   return (
     <Layout style={styles.details}>
-      <Text style={styles.detailsText}>{details.start}</Text>
       <Text style={styles.detailsText}>{details.destination}</Text>
     </Layout>
   );
