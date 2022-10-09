@@ -10,6 +10,7 @@ import ShoppingHelp from "src/Scenes/Requester/ShoppingHelp";
 import Shopping from "./Scenes/Volunteer/Shopping";
 import TaskList from "src/Containers/Requester/TaksList/TaskList";
 import NeedLift from "./Scenes/Requester/NeedLift";
+import HomeService from "./Scenes/Requester/HomeService";
 
 const Navigation = () => {
   const Stack = createNativeStackNavigator();
@@ -51,6 +52,11 @@ const Navigation = () => {
           name="NeedLift"
           // options={{ headerShown: false }}
           component={NeedLift}
+        />
+        <Stack.Screen
+          name="HomeService"
+          // options={{ headerShown: false }}
+          component={HomeService}
         />
       </Stack.Navigator>
     </NavigationContainer>
