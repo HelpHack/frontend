@@ -9,6 +9,7 @@ import MainRequester from "src/Scenes/Requester/MainRequester";
 import ShoppingHelp from "src/Scenes/Requester/ShoppingHelp";
 import Shopping from "./Scenes/Volunteer/Shopping";
 import TaskList from "src/Containers/Requester/TaksList/TaskList";
+import NeedLift from "./Scenes/Requester/NeedLift";
 
 const Navigation = () => {
   const Stack = createNativeStackNavigator();
@@ -23,12 +24,12 @@ const Navigation = () => {
         />
         <Stack.Screen
           name="MainVolunteer"
-          options={{ headerShown: Platform.OS === 'ios' }}
+          options={{ headerShown: Platform.OS === "ios" }}
           component={MainVolunteer}
         />
         <Stack.Screen
           name="MainRequester"
-          options={{ headerShown: Platform.OS === 'ios' }}
+          options={{ headerShown: Platform.OS === "ios" }}
           component={MainRequester}
         />
         <Stack.Screen
@@ -45,6 +46,11 @@ const Navigation = () => {
           name="TaskList"
           // options={{ headerShown: false }}
           component={TaskList}
+        />
+        <Stack.Screen
+          name="NeedLift"
+          // options={{ headerShown: false }}
+          component={NeedLift}
         />
       </Stack.Navigator>
     </NavigationContainer>
